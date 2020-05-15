@@ -15,7 +15,7 @@ class WordViewModel(application: Application):AndroidViewModel(application){
 
     init {
         //Get the Database
-        val wordDao = WordRoomDatabase.getDatabase(application).wordDao()
+        val wordDao = WordRoomDatabase.getDatabase(application, viewModelScope).wordDao()
         //Pass the Database to the Repository which is a required parameter
         repository= WordRepository(wordDao)
         allWords= repository.allWords
